@@ -1,7 +1,9 @@
-const heading = document.querySelector('h1')
+const heading = document.querySelector('#second')
+
 const button = document.querySelector('button.greeting')
+
 function changeText() {
-    heading.textContent = 'New heading!'
+    heading.textContent = 'New second heading!'
 }
 
 button.addEventListener('click', changeText)
