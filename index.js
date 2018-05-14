@@ -1,9 +1,13 @@
-const heading = document.querySelector('#second')
+const form = document.querySelector('form')
 
-const button = document.querySelector('button.greeting')
+const heading = document.querySelector('h1')
 
-function changeText() {
-    heading.textContent = 'New second heading!'
+const input = document.querySelector('input')
+
+function changeText(ev) {
+    ev.preventDefault();
+    heading.textContent = input.value
+    form.reset();
 }
 
-button.addEventListener('click', changeText)
+form.addEventListener('submit', changeText)
