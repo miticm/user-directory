@@ -1,9 +1,7 @@
-const heading = document.querySelector('h1')
+const headings = document.querySelectorAll('h1')
 
-const inputTextfield = document.querySelector('input')
-
-function changeText(ev) {
-    heading.textContent = inputTextfield.value
+for(let i = 0; i < headings.length;i++){
+    headings[i].addEventListener('click',function changeText() {
+        headings[i].textContent = 'Bye'
+    })
 }
-
-inputTextfield.addEventListener('keyup', changeText)
