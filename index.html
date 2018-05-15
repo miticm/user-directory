@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>User Director</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="index.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>User Directory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>Heading one</h1>
-    <h1 id="changeText">Heading two</h1>
-    <h1>Heading three</h1>
-    <h1>Heading four</h1>
-    <h1>Heading five</h1>
-    <form>
-        <label for="change">Change the second heading to</label>
-        <input type="text" name="change">
-        <button>submit</button>
-    </form>
-    <script src="index.js"></script>
+  <h1>User Directory</h1>
+
+  <form id="userForm">
+    <p>
+      <label for="userName">Name</label>
+      <input type="text" name="userName">
+    </p>
+    <button type="submit">Go</button>
+  </form>
+
+  <div id="users"></div>
+
+  <script src="index.js"></script>
 </body>
 </html>
