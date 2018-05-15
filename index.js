@@ -2,7 +2,6 @@ const form = document.querySelector('#userForm')
 
 const handleSubmit = function(ev) {
   ev.preventDefault()
-  const users = document.querySelector('#users')
   const f = ev.target
   const userName = f.userName.value
   const age = f.age.value
@@ -12,13 +11,23 @@ const handleSubmit = function(ev) {
   nameItem.textContent = `Name: ${userName}`
 
   const ageItem = document.createElement('li')
-  ageItem.textContent = `age: ${age}`
-  
-  const list = document.createElement('ul')   
+  ageItem.textContent = `Age: ${age}`
+
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = favoriteColor
+  colorDiv.style.width = '6rem'
+  colorDiv.style.height = '3rem'
+
+  const colorItem = document.createElement('li')
+  colorItem.textContent = 'Favorite Color: '
+  colorItem.appendChild(colorDiv)
+
+  const list = document.createElement('ul')
   list.appendChild(nameItem)
   list.appendChild(ageItem)
-  list.style.backgroundColor = favoriteColor
+  list.appendChild(colorItem)
 
+  const users = document.querySelector('#users')
   users.appendChild(list)
 
   f.reset()
