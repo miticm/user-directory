@@ -1,44 +1,56 @@
-const renderColor = function(favoriteColor){
+const form = document.querySelector('#userForm')
+
+function renderColor(color) {
   const colorDiv = document.createElement('div')
-  colorDiv.style.backgroundColor = favoriteColor
+  colorDiv.style.backgroundColor = color
   colorDiv.style.width = '6rem'
   colorDiv.style.height = '3rem'
   return colorDiv
 }
 
-const renderListItem = function(text){
-  const listItem = document.createElement('li')
-  listItem.textContent = text
-  return listItem
+function renderListItem(label, value) {
+  const item = document.createElement('li')
+
+  const term = document.createElement('dt')
+  term.textContent = label
+
+  const description = document.createElement('dd')
+
+  try {
+    description.appendChild(value)
+  } catch(e) {
+    description.textContent += value
+  }
+
+  item.appendChild(term)
+  item.appendChild(description)
+  return item
 }
 
-const renderList = function(userName,age,favoriteColor){
-  const list = document.createElement('ul')
-  const nameItem = renderListItem(`Name: ${userName}`)
-  const ageItem = renderListItem(`Age: ${age}`)
-  const colorItem = renderListItem('Favorite Color: ')
-  colorItem.appendChild(renderColor(favoriteColor))
-  list.appendChild(nameItem)
-  list.appendChild(ageItem)
-  list.appendChild(colorItem)
+function renderList(data) {
+  const list = document.createElement('dl')
+  const labels = Object.keys(data)
+  labels.forEach(label => {
+    const item = renderListItem(label, data[label])
+    list.appendChild(item)
+  })
   return list
 }
 
 const handleSubmit = function(ev) {
   ev.preventDefault()
   const f = ev.target
-  const userName = f.userName.value
-  const age = f.age.value
-  const favoriteColor = f.favoriteColor.value
-
-  const list = renderList(userName,age,favoriteColor)
+  const user = {
+    userName: f.userName.value,
+    age: f.age.value,
+    favoriteColor: renderColor(f.favoriteColor.value),
+  }
 
   const users = document.querySelector('#users')
-  users.appendChild(list)
+  users.appendChild(renderList(user))
 
   f.reset()
   f.userName.focus()
 }
 
-const form = document.querySelector('#userForm')
 form.addEventListener('submit', handleSubmit)

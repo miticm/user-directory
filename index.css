@@ -1,16 +1,27 @@
-body{
-    font-family: arial;
-    margin: 0;
+@import url('https://fonts.googleapis.com/css?family=Kavivanar');
+body {
+    font-family: 'Kavivanar', cursive;
     background: #a0c4ff;
 }
-h1{
-    letter-spacing: 0.05rem;
-    margin-left: 3rem;
+
+main {
+    display: flex;
+    justify-content: space-around;
 }
-form{
-    margin-left: 3rem;
+
+dl {
+    padding: 1rem;
 }
-input[type="text"],input[type="number"]{
+
+dl>li {
+    list-style: none;
+}
+
+dl:nth-of-type(even) {
+    background-color: whitesmoke;
+}
+
+input[type="text"], input[type="number"] {
     display: block;
     font-size: 20px;
     margin-bottom: 1rem;
@@ -18,17 +29,20 @@ input[type="text"],input[type="number"]{
     border-radius: .3rem;
     border-style: solid;
     border-width: 1px;
-    border-color: transparent;    
+    border-color: transparent;
     outline: none;
 }
-input[type='color']{
-    border-color: transparent;    
+
+input[type='color'] {
+    border-color: transparent;
     border-width: 1px;
 }
-input:hover{
+
+input:hover {
     border-color: #8d0000;
 }
-button{
+
+button {
     margin-top: 10px;
     width: 10rem;
     height: 3rem;
@@ -42,8 +56,8 @@ button{
     border-right: 4px solid rgb(110, 110, 110);
     outline: none;
 }
-button:active{
+
+button:active {
     border-bottom: 1px solid rgb(110, 110, 110);
     border-right: 1px solid rgb(110, 110, 110);
 }
-
